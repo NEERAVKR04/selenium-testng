@@ -16,24 +16,24 @@ public class SampleTest {
 
     public String URL = "https://thoughtcoders.com";
     public WebDriver driver;
+    String driverPath = "C:\\Users\\Administrator\\Downloads\\chromedriver_win32\\chromedriver.exe";
 
-
-    @Test(priority = 1)
-    public void verifyHomepageTitle() throws InterruptedException {
-
-        System.setProperty("webdriver.chrome.driver","C:\\Users\\Administrator\\Downloads\\chromedriver_win32\\chromedriver.exe");
+    @BeforeTest
+    public void setup(){
+        System.setProperty("webdriver.chrome.driver",driverPath);
         System.out.println("launching chrome browser");
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.get(URL);
-        Thread.sleep(5000);
+    }
+    @Test(priority = 1)
+    public void verifyHomepageTitle() {
 
         String expWinTitle ="ThoughtCoders | Web Development, Automation, QA Training";
         String actWinTitle = driver.getTitle();
 
         //Assertion for window title
         Assert.assertEquals(actWinTitle,expWinTitle);
-
 
     }
     @Test(priority = 2)
@@ -58,7 +58,7 @@ public class SampleTest {
 
     }
 
-    @Test(priority = 3)
+    @AfterTest
     public void closeConnections() {
         driver.quit();
 
