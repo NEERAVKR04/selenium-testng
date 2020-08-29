@@ -28,6 +28,14 @@ public class SampleTest {
         driver.manage().window().maximize();
         driver.get(URL);
     }
+    @BeforeMethod
+    public void beforeMethod(){
+        System.out.println("Before method testing");
+    }
+    @AfterMethod
+    public void afterMethod(){
+        System.out.println("After method testing");
+    }
     @Test(priority = 1)
     public void verifyHomepageTitle() {
 
