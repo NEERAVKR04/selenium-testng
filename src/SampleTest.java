@@ -28,15 +28,15 @@ public class SampleTest {
         driver.manage().window().maximize();
         driver.get(URL);
     }
-    @BeforeMethod
-    public void beforeMethod(){
-        System.out.println("Before method testing");
-    }
     @AfterMethod
-    public void afterMethod(){
+    public void afterMethod() throws InterruptedException{
         System.out.println("After method testing");
+        System.out.println(driver.getCurrentUrl());
+        // Navigate back to homepage
+        driver.findElement(By.xpath("//a[@title='Home']")).click();
+        Thread.sleep(10000);
     }
-    @Test(priority = 1)
+    @BeforeMethod
     public void verifyHomepageTitle() {
 
         String expWinTitle ="ThoughtCoders | Web Development, Automation, QA Training";
@@ -46,7 +46,7 @@ public class SampleTest {
         Assert.assertEquals(actWinTitle,expWinTitle);
 
     }
-    @Test(priority = 2)
+    @Test(priority = 1)
     public void goToBlogs() throws InterruptedException {
         Actions action = new Actions(driver);
         e = driver.findElement(By.xpath("//a[@title='Blogs']"));
@@ -66,10 +66,12 @@ public class SampleTest {
 
         driver.findElement(By.xpath("//a[contains(text(),'Top 25 Appium Interview Questions with Answers')]")).click();
         Thread.sleep(5000);
+        String postUrl = driver.getCurrentUrl();
 
     }
-    @Test(priority = 3)
+    @Test(priority = 2)
     public void postValidation(){
+        driver.navigate().back();
         String winUrl = driver.getCurrentUrl();
         System.out.println(winUrl);
         String postTitle = driver.getTitle();
