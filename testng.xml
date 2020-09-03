@@ -1,11 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Testing Google Apps">
-    <test name="Regression">
+<suite name="ThoughtCoders">
+    <test name="ThoughtCoders Smoke Test Demo">
+        <groups>
+            <run>
+                <include name="strong_ties" />
+            </run>
+        </groups>
         <classes>
-            <class name="Googletest.GmailTest"/>
-            <class name="Googletest.MapsTest"/>
-            <class name="Googletest.ImagesTest"/>
+            <class name="com.group.guru99.TC_Class1" />
         </classes>
-    </test> <!-- Test -->
-</suite> <!-- Suite -->
+    </test>
+</suite>
