@@ -20,6 +20,8 @@ public class SampleTest {
     public WebElement e;
     String driverPath = "C:\\Users\\Administrator\\Downloads\\chromedriver_win32\\chromedriver.exe";
 
+//   @Test(priority = 1,groups={"ties","bond"}) // Un-comment if want to run from testng xml file
+
     @BeforeTest
     public void setup(){
         System.setProperty("webdriver.chrome.driver",driverPath);
