@@ -4,11 +4,11 @@
     <test name="ThoughtCoders Smoke Test Demo">
         <groups>
             <run>
-                <include name="strong_ties" />
+                <include name="ties" />
             </run>
         </groups>
         <classes>
-            <class name="com.group.guru99.TC_Class1" />
+            <class name="SampleTest" />
         </classes>
     </test>
 </suite>
