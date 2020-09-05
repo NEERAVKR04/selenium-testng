@@ -46,7 +46,7 @@ public class SampleTest {
         Assert.assertEquals(actWinTitle,expWinTitle);
 
     }
-    @Test(priority = 1)
+    @Test(priority = 1,groups={"ties","bond"})
     public void goToBlogs() throws InterruptedException {
         Actions action = new Actions(driver);
         e = driver.findElement(By.xpath("//a[@title='Blogs']"));
@@ -69,7 +69,7 @@ public class SampleTest {
         String postUrl = driver.getCurrentUrl();
 
     }
-    @Test(priority = 2)
+    @Test(priority = 2,groups={"ties"})
     public void postValidation(){
         driver.navigate().back();
         String winUrl = driver.getCurrentUrl();
